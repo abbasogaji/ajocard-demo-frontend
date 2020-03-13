@@ -10,7 +10,9 @@
 ## Description
 
 The demo front-end interfaces with our transaction api for simulation purposes
-- Sample Login Credentials are : email agent@example.com, password : password
+<pre>
+- Sample Login Credentials are : email <b>agent@example.com</b>,  password :  <b>password </b>
+</pre>
 
 ## Stay in touch
 
