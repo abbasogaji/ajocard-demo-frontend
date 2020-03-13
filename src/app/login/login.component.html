@@ -9,6 +9,9 @@
   <section class="row mt-4">
       <div class="col-lg-4 offset-lg-4 col-sm-12 col-md-6 offset-md-3">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="alert alert-danger alert-dismissible fade show m-0 p-1 exa" role="alert" *ngIf="isError">
+                    <p>Authorization Failed</p>
+                  </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
                         <input type="email" class="form-control" formControlName="username" id="email" name="email" placeholder="Enter email">

@@ -16,7 +16,7 @@
                                 <div class="wallet-account-details">
                                     <div class="wallet-detail-item">
                                         <h3>Current Balance</h3>
-                                        <p>${{fromAccount?.accountBalance}}</p>
+                                        <p>${{fromAccount?.accountBalance | number : '.2'}}</p>
                                     </div>
                                     <div class="wallet-detail-item">
                                         <h3>Account Name</h3>
@@ -128,7 +128,7 @@
                                 <div class="wallet-account-details">
                                     <div class="wallet-detail-item">
                                         <h3>Current Balance</h3>
-                                        <p>${{toAccount?.accountBalance}}</p>
+                                        <p>${{toAccount?.accountBalance | number : '.2'}}</p>
                                     </div>
                                     <div class="wallet-detail-item">
                                         <h3>Account Name</h3>

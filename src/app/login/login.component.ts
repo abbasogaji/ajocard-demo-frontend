@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     private loginService : LoginService,
     private router : Router
   ) { }
-
+  isError : boolean = false;
   loginForm : FormGroup
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -25,11 +25,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     this.requestLoading = true;
+    this.isError  = false;
     this.loginService.login(this.loginForm.value).subscribe((response : any) => {
+      this.isError = false;
         this.requestLoading = false;
         localStorage.setItem("access_token", response.access_token)
         this.router.navigateByUrl("/")
     }, err => {
+      this.isError = true;
       this.requestLoading = false;
     })
   }
