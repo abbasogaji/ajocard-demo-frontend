@@ -78,33 +78,33 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
+                        <h6 class="text-center">Enter OTP</h6>
                         <small class="text-info">***OTP was directly provided because its just a demo</small>
                         <div class="form-group">
                             <input type="number" disabled class="form-control" id="inputAddress" [(ngModel)]="otpReceived">
                           </div>
-                          <div class="row text-center">
+                          <div class="text-center">
                             <button type="button"
                             [ngClass]="{'running' : requestLoading}"
                             [disabled]="requestLoading"
-                            class="btn btn-success ld-ext-right" (click)="onFinalize()">Enter
+                            class="btn btn-success ld-ext-right m-2" (click)="onFinalize()">Enter
                                 <div class="ld ld-ring ld-spin-fast"></div>
                             </button>
-                            <button type="button" class="btn btn-outline-secondary" (click)="reset()">Reset</button>
+                            <button type="button" class="btn btn-outline-secondary m-2" (click)="reset()">Reset</button>
                           </div>
                           
                    
                 </div>
                 <div class="card-body" *ngIf="view == 3">
                     <div class="alert alert-success alert-dismissible fade show m-0 p-1 exa" role="alert">
-                        Transaction (Transfer from Agent to customer was done successfully)
-                        use transaction reference <strong>{{ transactionRef }}</strong> and run GET request 
+                         <p>Transaction (Transfer from Agent to customer was done successfully)
+                            use transaction reference</p>
+                        <p class="text-center"><strong>{{ transactionRef }}</strong></p>
+                        <p>and run GET request </p>
                         <pre>
                             --GET /api/transaction/verify/[transactionRef]
                         </pre>
                         to see status
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
                       </div>
                         <div class="text-center p-4">
                             <button type="button" class="btn btn-outline-secondary" (click)="reset()">Test Again</button>
