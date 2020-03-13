@@ -46,6 +46,12 @@
                       </div>
                       <form [formGroup]="payForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputPassword4" formControlName="source_wallet_id" placeholder="Source Wallet Wallet ID">
+                            </div>
+                            <br>
+                            <hr>
+                            
                             <input type="number" class="form-control" id="inputAddress" placeholder="Enter Amount" formControlName="amount">
                           </div>
                             <div class="form-group">

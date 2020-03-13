@@ -29,6 +29,7 @@ export class MainComponent implements OnInit {
     this.payForm = new FormGroup({
       'amount' : new FormControl(0, Validators.required),
       'destination_wallet_id' : new FormControl(null, Validators.required),
+      'source_wallet_id' : new FormControl(null, Validators.required),
       'pin' : new FormControl(null, Validators.required)
 
     })
@@ -39,7 +40,7 @@ export class MainComponent implements OnInit {
 
   onSubmit(){
     this.isError = false;
-    this.mainService.initializeTransaction({...this.payForm.value, source_wallet_id : this.fromAccount.wallet_id}).subscribe((res : any) => {
+    this.mainService.initializeTransaction({...this.payForm.value}).subscribe((res : any) => {
       console.log(res)
           this.transactionRef = res.data.transactionReference;
           this.otpReceived = res.data.otp;
@@ -80,6 +81,7 @@ export class MainComponent implements OnInit {
         this.fromAccount = secondEl
         this.toAccount = firstEl
       }
+      this.payForm.get('source_wallet_id').setValue(this.fromAccount.wallet_id)
     })
   }
 
