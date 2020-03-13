@@ -16,6 +16,7 @@ export class MainComponent implements OnInit {
   initError : string;
   commitError : string;
   view = 1;
+  requestLoading : boolean =false;
 
   transactionRef;
   otpReceived;
@@ -40,23 +41,28 @@ export class MainComponent implements OnInit {
 
   onSubmit(){
     this.isError = false;
+    this.requestLoading = true;
     this.mainService.initializeTransaction({...this.payForm.value}).subscribe((res : any) => {
-      console.log(res)
+          this.requestLoading = false;
           this.transactionRef = res.data.transactionReference;
           this.otpReceived = res.data.otp;
           this.view = 2;
     }, err => {
+      this.requestLoading = false;
       this.isError = true;
       this.initError = err.error.message
     })
   }
 
   onFinalize(){
+    this.requestLoading = true;
     this.mainService.commitTransaction(this.transactionRef, { otp : this.otpReceived}).subscribe((res : any) => {
           this.view = 3;
           this.isError = false;
+          this.requestLoading = false;
           this.getAccounts()
     }, error => {
+        this.requestLoading = false;
         this.commitError = error.error.message
         this.isError = true;
     })

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+  requestLoading : boolean = false;
   constructor(
     private loginService : LoginService,
     private router : Router
@@ -24,11 +24,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
+    this.requestLoading = true;
     this.loginService.login(this.loginForm.value).subscribe((response : any) => {
+        this.requestLoading = false;
         localStorage.setItem("access_token", response.access_token)
         this.router.navigateByUrl("/")
     }, err => {
-      console.log("error loggin in")
+      this.requestLoading = false;
     })
   }
 
