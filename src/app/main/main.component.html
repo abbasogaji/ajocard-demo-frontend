@@ -1,0 +1,128 @@
+<div class="jumbotron jumbotron-fluid ajocard-jumbtron bg-dark">
+    <header class="text-component text-center">
+        <h2 class="font-weight-bold">AjoCard</h2>
+      </header>
+</div>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card transaction-div shadow">
+                <div class="card-header bg-success">
+                    <h2 class="font-weight-bold text-center text-white">{{fromAccount?.accountName}}</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 p-2 wallet-detail-wrapper">
+                                <div class="wallet-account-details">
+                                    <div class="wallet-detail-item">
+                                        <h3>Current Balance</h3>
+                                        <p>${{fromAccount?.accountBalance}}</p>
+                                    </div>
+                                    <div class="wallet-detail-item">
+                                        <h3>Account Name</h3>
+                                        <p>{{fromAccount?.accountName}}</p>
+                                    </div>
+                                    <div class="wallet-detail-item">
+                                        <h3>Wallet ID</h3>
+                                        <p>{{ fromAccount?.wallet_id }}</p>
+                                    </div>
+                                </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card transaction-div shadow">
+                <div class="card-header bg-light">
+                    <h2 class="font-weight-bold text-center">Agent</h2>
+                </div>
+                <div class="card-body" *ngIf="view == 1">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="isError">
+                        <strong>!</strong>{{ initError }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <form [formGroup]="payForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="inputAddress" placeholder="Enter Amount" formControlName="amount">
+                          </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputPassword4" formControlName="destination_wallet_id" placeholder="Destination Wallet ID">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" class="form-control" id="inputPassword4" formControlName="pin" placeholder="PIN">
+                            </div>
+                          
+                          <button type="submit" class="btn btn-block btn-success">Transfer ${{payForm.get('amount').value | number : '.2'}}</button>
+                      </form>
+                   
+                </div>
+                <div class="card-body" *ngIf="view == 2">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="isError">
+                        <strong>!</strong>{{ commitError }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                        <small class="text-info">***OTP was directly provided because its just a demo</small>
+                        <div class="form-group">
+                            <input type="number" disabled class="form-control" id="inputAddress" [(ngModel)]="otpReceived">
+                          </div>
+                          <div class="row">
+                            <button type="button" class="btn btn-block btn-success" (click)="onFinalize()">Enter</button>
+                            <button type="button" class="btn btn-outline-secondary" (click)="reset()">Reset</button>
+                          </div>
+                          
+                   
+                </div>
+                <div class="card-body" *ngIf="view == 3">
+                    <div class="alert alert-success alert-dismissible fade show m-0 p-1 exa" role="alert">
+                        Transaction (Transfer from Agent to customer was done successfully)
+                        use transaction reference <strong>{{ transactionRef }}</strong> and run GET request 
+                        <pre>
+                            --GET /api/transaction/verify/[transactionRef]
+                        </pre>
+                        to see status
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                        <div class="text-center p-4">
+                            <button type="button" class="btn btn-outline-secondary" (click)="reset()">Test Again</button>
+                        </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card transaction-div shadow">
+                <div class="card-header bg-primary">
+                    <h2 class="font-weight-bold text-center text-white">{{toAccount?.accountName}}</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 p-2 wallet-detail-wrapper">
+                                <div class="wallet-account-details">
+                                    <div class="wallet-detail-item">
+                                        <h3>Current Balance</h3>
+                                        <p>${{toAccount?.accountBalance}}</p>
+                                    </div>
+                                    <div class="wallet-detail-item">
+                                        <h3>Account Name</h3>
+                                        <p>{{toAccount?.accountName}}</p>
+                                    </div>
+                                    <div class="wallet-detail-item">
+                                        <h3>Wallet ID</h3>
+                                        <p>{{ toAccount?.wallet_id }}</p>
+                                    </div>
+                                </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

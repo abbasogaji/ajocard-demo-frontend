@@ -1,0 +1,42 @@
+.ajocard-jumbtron {
+    color: #fff;
+    /* color: #0073b5; */
+    background: #af9316;
+    /* background: #fff; */
+    height: 450px;
+  }
+
+  .transaction-div {
+    border: none;
+    border-radius: 10px;
+    /* box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55); */
+    /* box-shadow: 0 5px 25px 0 rgba(14, 42, 90, 0.55); */
+  }
+  .transaction-div .card-body{
+    min-height: 400px;
+  }
+  #main-content {
+    margin-top: -300px;
+  }
+  
+.wallet-account-details{
+    padding: 2rem;
+    text-align: left;
+}
+.wallet-account-details .wallet-detail-item{
+    margin-bottom: 2rem;
+}
+.wallet-detail-item h3{
+    font-size: 13px;
+    font-weight: bold;
+    color: #111;
+}
+
+.wallet-detail-item p{
+    font-size: 28px;
+    color: #0073b5;
+
+}
+.exa{
+    font-size: 12px;
+}
