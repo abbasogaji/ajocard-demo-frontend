@@ -31,17 +31,17 @@
     font-weight: bold;
     color: #111;
 }
-
 .wallet-detail-item p{
-    font-size: 18px;
-    color: #71797e;
-
-}
-.wallet-detail-item p:nth-of-type(1){
   font-size: 28px;
   color: #0073b5;
 
 }
+.wallet-detail-item p.text-secondary{
+    font-size: 18px;
+    color: #71797e;
+
+}
+
 .exa{
     font-size: 12px;
 }
