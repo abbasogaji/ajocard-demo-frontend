@@ -3,7 +3,9 @@
 </p>
 
   <p align="center">DEMO Front-end for AjoCard Transaction API</p>
-   [https://ajocard-demo-frontend.now.sh](https://ajocard-demo-frontend.now.sh)
+ 
+ 
+  - [https://ajocard-demo-frontend.now.sh](https://ajocard-demo-frontend.now.sh)
 
 ## Description
 
