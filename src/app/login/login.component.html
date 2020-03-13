@@ -21,7 +21,9 @@
                     </div>
                     <button type="submit" 
                     [ngClass]="{'running' : requestLoading}"
-                    [disabled]="loginForm.invalid || requestLoading" class="btn btn-primary ld-ext-right">Login</button>
+                    [disabled]="loginForm.invalid || requestLoading" class="btn btn-primary ld-ext-right">Login
+                    <div class="ld ld-ring ld-spin-fast"></div>
+                  </button>
                 </form>
       </div>
 

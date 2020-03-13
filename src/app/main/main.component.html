@@ -64,7 +64,10 @@
                           <button type="submit" 
                           [ngClass]="{'running' : requestLoading}"
                           [disabled]="requestLoading || payForm.invalid"
-                          class="btn btn-block btn-success ld-ext-right">Transfer {{payForm.get('amount').value | number : '.2'}}</button>
+                          class="btn btn-block btn-success ld-ext-right">Transfer {{payForm.get('amount').value | number : '.2'}}
+                          <div class="ld ld-ring ld-spin-fast"></div>
+                        </button>
+
                       </form>
                    
                 </div>
@@ -79,11 +82,13 @@
                         <div class="form-group">
                             <input type="number" disabled class="form-control" id="inputAddress" [(ngModel)]="otpReceived">
                           </div>
-                          <div class="row">
+                          <div class="row text-center">
                             <button type="button"
                             [ngClass]="{'running' : requestLoading}"
                             [disabled]="requestLoading"
-                            class="btn btn-block btn-success ld-ext-right" (click)="onFinalize()">Enter</button>
+                            class="btn btn-success ld-ext-right" (click)="onFinalize()">Enter
+                                <div class="ld ld-ring ld-spin-fast"></div>
+                            </button>
                             <button type="button" class="btn btn-outline-secondary" (click)="reset()">Reset</button>
                           </div>
                           
