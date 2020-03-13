@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.payForm = new FormGroup({
-      'amount' : new FormControl(0, Validators.required),
+      'amount' : new FormControl(null, Validators.required),
       'destination_wallet_id' : new FormControl(null, Validators.required),
       'source_wallet_id' : new FormControl(null, Validators.required),
       'pin' : new FormControl(null, Validators.required)

@@ -63,8 +63,8 @@
                           
                           <button type="submit" 
                           [ngClass]="{'running' : requestLoading}"
-                          [disabled]="requestLoading"
-                          class="btn btn-block btn-success ld-ext-right">Transfer ${{payForm.get('amount').value | number : '.2'}}</button>
+                          [disabled]="requestLoading || payForm.invalid"
+                          class="btn btn-block btn-success ld-ext-right">Transfer {{payForm.get('amount').value | number : '.2'}}</button>
                       </form>
                    
                 </div>
